@@ -7,7 +7,7 @@ namespace SharpUtensils.Tests
     public class AlphaNumericComparatorTests
     {
         [Theory]
-        [InlineData(null, "", "1", "9", "10", "a", "z")]
+        [InlineData(null, null, "", "", "1", "9", "10", "a", "z")]
         [InlineData("50F", "100F", "SR9", "SR100")]
         [InlineData("image-1.jpg", "image-02.jpg", "image-4.jpg", "image-9.jpg", "image-10.jpg", "image-11.jpg", "image-22.jpg")]
         [InlineData("Hard drive 2GB", "Hard drive 20GB")]
