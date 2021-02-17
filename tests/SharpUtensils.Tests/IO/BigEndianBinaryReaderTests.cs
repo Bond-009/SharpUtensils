@@ -48,9 +48,18 @@ namespace SharpUtensils.Tests.IO
         public void Dispose_LeaveOpenFalse_ThrowsObjectDisposedException()
         {
             using var ms = new MemoryStream(new byte[] { 0xff });
-            var reader = new BigEndianBinaryReader(ms, Encoding.UTF8, false);
+            var reader = new BigEndianBinaryReader(ms, Encoding.UTF8);
             reader.Dispose();
             Assert.Throws<ObjectDisposedException>(() => ms.ReadByte());
+        }
+
+        [Fact]
+        public void Dispose_DoubleDispose_DoesntThrow()
+        {
+            using var ms = new MemoryStream();
+            var reader = new BigEndianBinaryReader(ms);
+            reader.Dispose();
+            reader.Dispose();
         }
 
         [Theory]
