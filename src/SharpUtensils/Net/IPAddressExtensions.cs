@@ -54,7 +54,7 @@ namespace SharpUtensils.Net
                 $"Expected {nameof(bytesWritten)} to be {IPv4AddressBytes}, got {bytesWritten}");
 
             // Check if the most-significant bit pattern is 1110
-            return (bytes[3] & 0xFE) == 0xE0;
+            return (bytes[0] & 0xf0) == 0b11100000;
         }
 
         /// <summary>
