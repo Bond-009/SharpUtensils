@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+using System;
 using System.Collections.Generic;
 
 namespace SharpUtensils
@@ -63,6 +64,7 @@ namespace SharpUtensils
         /// <param name="destinationIndex">The zero-based index in <c>destination</c> at which copying begins.</param>
         /// <param name="count">The number of elements to copy.</param>
         /// <typeparam name="T">The type of elements in the collections.</typeparam>
+        /// <exception cref="ArgumentException">Count is greater than the number of elements from index to the end of the source collection.</exception>
         public static void CopyTo<T>(
             this IReadOnlyList<T> source,
             int sourceIndex,
